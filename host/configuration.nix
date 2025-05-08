@@ -4,6 +4,7 @@
     [
       ./hardware-configuration.nix
       ./../modules/common/nix-nh.nix
+      ./../modules/common/basepkgs.nix
     ];
     
   boot = {
@@ -47,14 +48,7 @@
     }
   ];
 
-  environment.systemPackages = with pkgs; [
-     curl
-     git
-     vim
-     wget
-     lazygit
-     yazi
-  ];
+
 
   # Enable the OpenSSH daemon.
   services.openssh = {
