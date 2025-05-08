@@ -1,16 +1,10 @@
 { config, lib, pkgs, ... }:
-
-let
-  vars = import ./vars.nix;
-in
 {
   imports =
     [
       ./hardware-configuration.nix
-      "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/v1.11.0.tar.gz"}/module.nix"
-     ./disk-config.nix
     ];
-
+    
   boot = {
     loader = {
       systemd-boot.enable = true;
@@ -24,25 +18,25 @@ in
 
   systemd.targets.multi-user.enable = true;
 
-  networking.hostName = vars.hostname;
+  networking.hostName = "Nixbox";
   networking.networkmanager.enable = true;
 
-  time.timeZone = vars.timezone;
-  i18n.defaultLocale = vars.locale;
+  time.timeZone = "America/New_York";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   users = {
     mutableUsers = false;
-    users.${vars.username} = {
+    users.${"howard"} = {
       isNormalUser = true;
       extraGroups = ["networkmanager" "wheel"];
-      openssh.authorizedKeys.keys = [ vars.sshKey ];
+      openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEOpf39CFo3U9gJBxb1DaIPrp3/NCfelkTN+yMSNPNt4 dhwisema@ncsu.edu" ];
     };
   };
 
   # Enable passwordless sudo.
   security.sudo.extraRules = [
     {
-      users = [vars.username];
+      users = ["howard"];
       commands = [
         {
           command = "ALL";
@@ -78,7 +72,7 @@ in
   # networking.firewall.allowedUDPPorts = [ ... ];
 
   # Disable documentation for minimal install.
-  documentation.enable = false;
+  documentation.enable = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
