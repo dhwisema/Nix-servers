@@ -57,6 +57,8 @@ in
      git
      vim
      wget
+     lazygit
+     yazi
   ];
 
   # Enable the OpenSSH daemon.
