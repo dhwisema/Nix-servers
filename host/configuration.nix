@@ -6,6 +6,8 @@
       ./../modules/common/nix-nh.nix
       ./../modules/common/basepkgs.nix
       ./../modules/tailscale.nix
+      "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix"
+      ./disk-config.nix
     ];
     
   boot = {
