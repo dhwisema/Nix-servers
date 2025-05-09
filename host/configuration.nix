@@ -5,6 +5,7 @@
       ./hardware-configuration.nix
       ./../modules/common/nix-nh.nix
       ./../modules/common/basepkgs.nix
+      ./../modules/tailscale.nix
     ];
     
   boot = {
