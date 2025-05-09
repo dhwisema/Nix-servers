@@ -14,7 +14,7 @@
     clean.enable = true;
     clean.dates = "weekly";
     clean.extraArgs = "--keep 2";
-    nh_flake = "/home/howard/Nix-servers";
+    flake = "/home/howard/Nix-servers";
   };
 
   nix = {
