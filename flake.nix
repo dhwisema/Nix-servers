@@ -19,7 +19,7 @@
     nixosConfigurations.Nixbox = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
-        ./host/Nixbox/configuration.nix
+        ./host/configuration.nix
       ];
     };
 
