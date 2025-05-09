@@ -23,6 +23,8 @@
       modules = [
         ./host/configuration.nix
         disko.nixosModules.disko
+        ./host/disk-config.nix
+        
       ];
     };
 
