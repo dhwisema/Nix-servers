@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    disko.url = "github:nix-community/disko/latest";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
    
     #home-manager till i decide to nuke it again
     # home-manager.url = "github:nix-community/home-manager";
@@ -11,7 +13,7 @@
 
   outputs = {
     self,
-    nixpkgs,
+    nixpkgs, disko,
     ...
   }: {
     
@@ -20,6 +22,7 @@
       system = "aarch64-linux";
       modules = [
         ./host/configuration.nix
+        disko.nixosModules.disko
       ];
     };
 
