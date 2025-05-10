@@ -31,7 +31,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   users = {
-    mutableUsers = false;
+    mutableUsers = true;
     users.${"howard"} = {
       isNormalUser = true;
       extraGroups = ["networkmanager" "wheel"];
