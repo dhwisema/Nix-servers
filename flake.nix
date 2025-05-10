@@ -26,6 +26,7 @@
     nixosConfigurations.Nixbox = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
+	sops-nix.nixosModules.sops
         ./host/configuration.nix
         disko.nixosModules.disko
         ./host/disk-config.nix
