@@ -7,6 +7,8 @@
       ./../modules/common/basepkgs.nix
       ./../modules/tailscale.nix
       ./../modules/sops.nix
+      ./../modules/calibre.nix
+      ./../modules/caddy.nix
     ];
     
   boot = {
