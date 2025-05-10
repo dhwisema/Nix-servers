@@ -9,11 +9,17 @@
     #home-manager till i decide to nuke it again
     # home-manager.url = "github:nix-community/home-manager";
     # home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+      sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows ="nixpkgs";
+    };
+
   };
 
   outputs = {
     self,
-    nixpkgs, disko,
+    nixpkgs, disko, sops-nix
     ...
   }: {
     
@@ -24,7 +30,7 @@
         ./host/configuration.nix
         disko.nixosModules.disko
         ./host/disk-config.nix
-        
+      	../../modules/sops.nix  
       ];
     };
 
