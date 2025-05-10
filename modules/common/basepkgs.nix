@@ -8,6 +8,7 @@
      yazi
      pik
      btop
+     sqlite
   ];
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
