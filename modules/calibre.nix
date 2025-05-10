@@ -1,4 +1,5 @@
-{pkgs,lib,config,...}:{
+{ config, lib, pkgs, ... }:{
+  # Calibre-Web
   services.calibre-web= {
     enable = true;
     group = "media";
@@ -7,10 +8,19 @@
       port = 8083;
     };
     options = {
-      enableKepubify = true;
       calibreLibrary = "/tank/media/ebook";
       enableBookUploading = true;
       enableBookConversion = true;
+      enableKepubify = true;
     };
   };
+  
+┃   users.groups.media = {};
+    environment.systemPackages = with pkgs; [
+      kepubify
+      
+  ];
+
+
+
 }
