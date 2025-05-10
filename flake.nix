@@ -19,8 +19,7 @@
 
   outputs = {
     self,
-    nixpkgs, disko, sops-nix
-    ...
+    nixpkgs, disko, sops-nix,...
   }: {
     
 
