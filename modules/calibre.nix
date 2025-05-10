@@ -15,7 +15,7 @@
     };
   };
   
-┃   users.groups.media = {};
+    users.groups.media = {};
     environment.systemPackages = with pkgs; [
       kepubify
       
