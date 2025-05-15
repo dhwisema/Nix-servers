@@ -35,7 +35,7 @@
     users.${"howard"} = {
       isNormalUser = true;
       extraGroups = ["networkmanager" "wheel"];
-      openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEOpf39CFo3U9gJBxb1DaIPrp3/NCfelkTN+yMSNPNt4 dhwisema@ncsu.edu" ];
+      openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEOpf39CFo3U9gJBxb1DaIPrp3/NCfelkTN+yMSNPNt4 dhwisema@ncsu.edu" "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID1YGb985IWR5Uxo0MwIJs7rotfzoxPIU3nEkvbWTvwd alice@Galaxia" ];
     };
   };
 
