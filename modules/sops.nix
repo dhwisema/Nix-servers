@@ -8,6 +8,6 @@ in
   sops = {
     age.sshKeyPaths = map getKeyPath keys;
     secrets.tailscale_key = { sopsFile =./../host/secrets.yaml;};
-
+    
   };
 }
