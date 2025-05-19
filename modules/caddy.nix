@@ -9,10 +9,10 @@
 }:
 {
 
-    systemd.services.caddy.serviceConfig = {
-      AmbientCapabilities = lib.mkForce [ "CAP_NET_BIND_SERVICE" ];
-      LoadCredential = "tsKey:${cfg.tsAuthKey}";
-    };
+    # systemd.services.caddy.serviceConfig = {
+    #   AmbientCapabilities = lib.mkForce [ "CAP_NET_BIND_SERVICE" ];
+    #   LoadCredential = "tsKey:${cfg.tsAuthKey}";
+    # };
   services = {
     caddy = {
       enable = false; #this way until i figure out how to actually use the key correctly with sops-nix
