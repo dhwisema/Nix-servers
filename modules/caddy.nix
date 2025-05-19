@@ -29,7 +29,7 @@
 
           # If true, register ephemeral nodes that are removed after disconnect.
           # <since we depend on hostnames rather than URLs, this is fine for now>
-          ephemeral true
+          ephemeral false
 
           # Directory to store Tailscale state in. A subdirectory will be created for each node.
           # The default is to store state in the user's config dir (see os.UserConfDir).
