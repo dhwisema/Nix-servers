@@ -7,7 +7,16 @@ in
 {
   sops = {
     age.sshKeyPaths = map getKeyPath keys;
-    secrets.tailscale_key = { sopsFile =./../host/secrets.yaml;};
-    
+    secrets.TS_AUTHKEY = { sopsFile =./../host/secrets.yaml;};
+    age.secrets.ts-authkey = {
+      file = "./../host/ts-authkey.age";
+      owner = config.services.caddy.user;
+      group = config.services.caddy.group;
+      mode = "600";
+    };
+systemd.services.caddy.serviceConfig.EnvironmentFile = config.age.secrets.ts-authkey.path;
   };
 }
+
+
+
