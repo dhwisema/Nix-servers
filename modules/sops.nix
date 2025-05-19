@@ -8,13 +8,13 @@ in
   sops = {
     age.sshKeyPaths = map getKeyPath keys;
     secrets.TS_AUTHKEY = { sopsFile =./../host/secrets.yaml;};
-    age.secrets.ts-authkey = {
-      file = "./../host/ts-authkey.age";
+    age.secrets.TS_AUTHKEY = {
+      sopsFile =./../host/secrets.yaml;
       owner = config.services.caddy.user;
       group = config.services.caddy.group;
       mode = "600";
     };
-systemd.services.caddy.serviceConfig.EnvironmentFile = config.age.secrets.ts-authkey.path;
+    systemd.services.caddy.serviceConfig.EnvironmentFile = config.age.secrets.ts-authkey.path;
   };
 }
 
