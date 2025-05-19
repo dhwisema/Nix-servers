@@ -9,12 +9,12 @@ in
     age.sshKeyPaths = map getKeyPath keys;
     secrets.TS_AUTHKEY = {
       sopsFile =./../host/secrets.yaml;
-      owner = config.services.caddy.user;
-      group = config.services.caddy.group;
-      mode = "600";
+      # owner = config.services.caddy.user;
+      # group = config.services.caddy.group;
+      # mode = "600";
     };
   };
-  systemd.services.caddy.serviceConfig.EnvironmentFile = config.sops.secrets.TS_AUTHKEY.path;
+ # systemd.services.caddy.serviceConfig.EnvironmentFile = config.sops.secrets.TS_AUTHKEY.path;
 }
 
 
