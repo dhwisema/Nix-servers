@@ -7,8 +7,7 @@ in
 {
   sops = {
     age.sshKeyPaths = map getKeyPath keys;
-    secrets.TS_AUTHKEY = { sopsFile =./../host/secrets.yaml;};
-    age.secrets.TS_AUTHKEY = {
+    secrets.TS_AUTHKEY = {
       sopsFile =./../host/secrets.yaml;
       owner = config.services.caddy.user;
       group = config.services.caddy.group;
