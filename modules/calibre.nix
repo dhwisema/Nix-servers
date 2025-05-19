@@ -9,7 +9,7 @@
       port = 8083;
     };
     options = {
-      calibreLibrary = "/mnt/media/ebook";;
+      calibreLibrary = "/mnt/media/ebook";
       enableBookUploading = true;
       enableBookConversion = true;
       enableKepubify = true;
