@@ -13,7 +13,7 @@ in
       group = config.services.caddy.group;
       mode = "600";
     };
-    systemd.services.caddy.serviceConfig.EnvironmentFile = config.age.secrets.ts-authkey.path;
+    systemd.services.caddy.serviceConfig.EnvironmentFile = config.sops.secrets.ts-authkey.path;
   };
 }
 
