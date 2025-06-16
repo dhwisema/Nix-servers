@@ -7,7 +7,7 @@
     cachix
   ];
   nixpkgs.config.allowUnfree = true;
-  nix.package = pkgs.lix;
+  nix.package = pkgs.lixPackageSets.latest.lix;
 
   programs.nh = {
     enable = true;
