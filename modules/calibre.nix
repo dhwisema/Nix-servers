@@ -28,6 +28,7 @@
     pkgs.python312Packages.installer
     pkgs.python312Packages.flask-principal
     pkgs.python312Packages.flask-babel
+    pkgs.python312Packages.cffi
     
       ];});
     enable = true;
