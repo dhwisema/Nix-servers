@@ -11,7 +11,7 @@
     pkgs.python312Packages.pycountry
     pkgs.python312Packages.apscheduler
     pkgs.python312Packages.pypdf    
-    pkgs.python313Packages.pytz
+    pkgs.python312Packages.pytz
     pkgs.python312Packages.requests
     pkgs.python312Packages.sqlalchemy
     pkgs.python312Packages.tornado 
