@@ -26,6 +26,7 @@
     pkgs.python312Packages.python-magic  
     pkgs.python312Packages.cryptography
     pkgs.python312Packages.installer
+    pkgs.python312Packages.flask-principal
     
       ];});
     enable = true;
