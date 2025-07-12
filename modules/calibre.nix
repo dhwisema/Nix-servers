@@ -24,7 +24,10 @@
     pkgs.python312Packages.regex  
     pkgs.python312Packages.bleach  
     pkgs.python312Packages.python-magic  
-    pkgs.python312Packages.cryptography  ];});
+    pkgs.python312Packages.cryptography
+    pkgs.python312Packages.installer
+    
+      ];});
     enable = true;
     group = "media";
     listen = {
