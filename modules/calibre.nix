@@ -2,7 +2,7 @@
   # Calibre-Web
   services.calibre-web= {
     package = pkgs.calibre-web.overrideAttrs ({ propagatedBuildInputs ? [ ], ... }: {
-    propagatedBuildInputs = propagatedBuildInputs ++ [ pkgs.python312Packages.jsonschema python312Packages.setuptools ];});
+    propagatedBuildInputs = propagatedBuildInputs ++ [ pkgs.python312Packages.jsonschema pkgs.python312Packages.setuptools ];});
     enable = true;
     group = "media";
     listen = {
