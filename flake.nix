@@ -30,7 +30,7 @@
           ({ config, pkgs, ... }:
           let
             calibre-web-unstable = final: prev: {
-              calibre-web = nixpkgs-master.legacyPackages.system.calibre-web
+              calibre-web = nixpkgs-master.legacyPackages.system.calibre-web;
             };
              {
             nixpkgs.overlays = [ calibre-web-unstable ];
