@@ -27,6 +27,17 @@
       system = "aarch64-linux";
       specialArgs = { inherit inputs;};
       modules = [
+          ({ config, pkgs, ... }:
+          let
+            calibre-web-unstable = final: prev: {
+              calibre-web = nixpkgs-master.legacyPackages.system.calibre-web
+            };
+             {
+            nixpkgs.overlays = [ calibre-web-unstable ];
+          };
+         )
+
+
 	sops-nix.nixosModules.sops
         ./host/configuration.nix
         disko.nixosModules.disko
