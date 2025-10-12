@@ -25,7 +25,7 @@
   }@inputs: {
     nixosConfigurations.Nixbox = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      specialArgs = { inherit inputs};
+      specialArgs = { inherit inputs;};
       modules = [
 	sops-nix.nixosModules.sops
         ./host/configuration.nix
