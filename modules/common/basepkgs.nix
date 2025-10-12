@@ -1,4 +1,4 @@
-{ config, lib, nixpkgs-master, pkgs, ... }:
+{ config,inputs, lib, nixpkgs-master, pkgs, ... }:
 {
 
 
