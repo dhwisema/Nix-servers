@@ -32,9 +32,9 @@
             calibre-web-unstable = final: prev: {
               calibre-web = nixpkgs-master.legacyPackages.system.calibre-web;
             };
-             {
+          in {
             nixpkgs.overlays = [ calibre-web-unstable ];
-          };
+          }
          )
 
 
