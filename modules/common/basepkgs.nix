@@ -6,7 +6,7 @@
   nixpkgs.overlays = [
     (final: _: {
       # this allows you to access `pkgs.unstable` anywhere in your config
-      master = import inputs.nixpkgs-unstable {
+      master = import inputs.nixpkgs-master {
         inherit (final.stdenv.hostPlatform) system;
         inherit (final) config;
       };
