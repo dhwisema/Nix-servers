@@ -22,9 +22,10 @@
   outputs = {
     self,
     nixpkgs,nixpkgs-unstable,nixpkgs-master, disko, sops-nix,...
-  }: {
+  }@inputs: {
     nixosConfigurations.Nixbox = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
+      specialArgs = { inherit inputs};
       modules = [
 	sops-nix.nixosModules.sops
         ./host/configuration.nix
