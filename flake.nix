@@ -23,8 +23,6 @@
     self,
     nixpkgs,nixpkgs-unstable,nixpkgs-master, disko, sops-nix,...
   }: {
-    
-
     nixosConfigurations.Nixbox = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
@@ -32,6 +30,16 @@
         ./host/configuration.nix
         disko.nixosModules.disko
         ./host/disk-config.nix
+
+
+        {
+          nixpkgs.overlays = [
+            (final: prev: {
+              calibre-web = nixpkgs-master.calibre-web;
+            })
+          ];
+        }
+
       ];
     };
 
