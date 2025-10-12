@@ -31,15 +31,6 @@
         disko.nixosModules.disko
         ./host/disk-config.nix
 
-
-        {
-          nixpkgs.overlays = [
-            (final: prev: {
-              calibre-web = nixpkgs-master.calibre-web;
-            })
-          ];
-        }
-
       ];
     };
 
