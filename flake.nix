@@ -3,8 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
    
@@ -21,22 +20,12 @@
 
   outputs = {
     self,
-    nixpkgs,nixpkgs-unstable,nixpkgs-master, disko, sops-nix,...
-  }@inputs: {
+    nixpkgs, disko, sops-nix,...
+  }:{
     nixosConfigurations.Nixbox = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      specialArgs = { inherit inputs;};
       modules = [
-          ({ config, pkgs, ... }:
-          let
-            calibre-web-unstable = final: prev: {
-              calibre-web = nixpkgs-master.legacyPackages."aarch64-linux".calibre-web;
-            };
-          in {
-            nixpkgs.overlays = [ calibre-web-unstable ];
-          }
-         )
-
+          
 
 	sops-nix.nixosModules.sops
         ./host/configuration.nix
