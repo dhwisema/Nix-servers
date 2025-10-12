@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
    
@@ -19,7 +21,7 @@
 
   outputs = {
     self,
-    nixpkgs, disko, sops-nix,...
+    nixpkgs,nixpkgs-unstable,nixpkgs-master, disko, sops-nix,...
   }: {
     
 
