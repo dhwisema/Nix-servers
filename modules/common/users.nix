@@ -5,6 +5,10 @@
   ...
 }:
 {
+
+  # Disable documentation for minimal install.
+  documentation.enable = false;
+
   systemd.targets.multi-user.enable = true;
   # Enable passwordless sudo.
   security.sudo.extraRules = [
