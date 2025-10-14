@@ -26,7 +26,7 @@
         ];
       };
 
-      nixosConfigurations.mq90 = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.MQ90 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./host/MQ90/configuration.nix
