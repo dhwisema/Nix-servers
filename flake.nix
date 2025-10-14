@@ -21,7 +21,7 @@
         modules = [
           ./host/oci/configuration.nix
           disko.nixosModules.disko
-          ./host/disk-config.nix
+          ./host/oci/disk-config.nix
 
         ];
       };
