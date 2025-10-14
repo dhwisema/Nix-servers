@@ -1,0 +1,18 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    ./nix-nh.nix
+    ./basepkgs.nix
+    ./kernel.nix
+    ./login.nix
+    ./ssh.nix
+    ./time.nix
+    ./users.nix
+    ./boot.nix
+  ];
+}

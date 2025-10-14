@@ -5,7 +5,7 @@
   ...
 }:
 {
-
+  systemd.targets.multi-user.enable = true;
   # Enable passwordless sudo.
   security.sudo.extraRules = [
     {

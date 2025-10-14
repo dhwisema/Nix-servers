@@ -1,7 +1,12 @@
-{ config, lib, pkgs, ... }:
 {
-
-
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  networking.networkmanager.enable = true;
+  
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
@@ -15,4 +20,4 @@
   networking.firewall.allowedTCPPorts = [ 22 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
 
-  }
+}
