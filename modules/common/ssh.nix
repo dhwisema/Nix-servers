@@ -5,7 +5,9 @@
   ...
 }:
 {
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+  };
   
   # Enable the OpenSSH daemon.
   services.openssh = {
