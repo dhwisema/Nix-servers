@@ -6,6 +6,8 @@
     #nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -13,6 +15,7 @@
       self,
       nixpkgs,
       disko,
+      sops-nix,
       ...
     }:
     {
@@ -22,7 +25,7 @@
           ./host/oci/configuration.nix
           disko.nixosModules.disko
           ./host/oci/disk-config.nix
-
+          sops-nix.nixosModules.sops
         ];
       };
 
@@ -30,6 +33,7 @@
         system = "x86_64-linux";
         modules = [
           ./host/MQ90/configuration.nix
+          sops-nix.nixosModules.sops
         ];
       };
     };
