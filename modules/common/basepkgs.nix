@@ -13,6 +13,7 @@
     lazygit
     yazi
     pik
+    compose2nix
     btop
     sqlite
   ];
