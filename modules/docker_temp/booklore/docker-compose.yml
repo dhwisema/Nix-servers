@@ -11,7 +11,7 @@ services:
       - DATABASE_URL=/run/secrets/Booklore_Secrets_DATABASE_URL
       - DATABASE_USERNAME=/run/secrets/Booklore_Secrets_DB_USER
       - DATABASE_PASSWORD=/run/secrets/Booklore_Secrets_DB_PASSWORD
-      - BOOKLORE_PORT=/run/secrets/Booklore_Secrets_BOOKLORE_PORT
+      - BOOKLORE_PORT=6060
     depends_on:
       mariadb:
         condition: service_healthy
