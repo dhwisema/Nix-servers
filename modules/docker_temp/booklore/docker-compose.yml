@@ -44,5 +44,5 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
-     labels:
+    labels:
       - "compose2nix.settings.sops.secrets=Booklore_Secrets_DB_USER_ID,Booklore_Secrets_DB_GROUP_ID,Booklore_Secrets_TZ,Booklore_Secrets_DB_USER,Booklore_Secrets_DB_PASSWORD,Booklore_Secrets_MYSQL_ROOT_PASSWORD,Booklore_Secrets_MYSQL_DATABASE"
