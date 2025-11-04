@@ -26,7 +26,7 @@
       "BOOKLORE_PORT" = "6060";
       "DATABASE_PASSWORD" = "/run/secrets/Booklore/Secrets/DB_PASSWORD";
       "DATABASE_URL" = "/run/secrets/Booklore/Secrets/DATABASE_URL";
-      "DATABASE_USERNAME" = "/run/secrets/Booklore/Secrets_DB_USER";
+      "DATABASE_USERNAME" = "/run/secrets/Booklore/Secrets/DB_USER";
       "GROUP_ID" = "/run/secrets/Booklore/Secrets/APP_GROUP_ID";
       "TZ" = "/run/secrets/Booklore/Secrets/TZ";
       "USER_ID" = "/run/secrets/Booklore/Secrets/APP_USER_ID";
