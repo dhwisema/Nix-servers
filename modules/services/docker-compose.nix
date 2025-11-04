@@ -67,7 +67,7 @@
       "TZ" = "/run/secrets/Booklore/Secrets/TZ";
     };
     volumes = [
-      "/home/howard/Nix-servers/modules/docker_temp/booklore/mariadb/config:/config:rw"
+      "/home/howard/booklore/mariadb/config:/config:rw"
     ];
     labels = {
       "compose2nix.settings.sops.secrets" = "Booklore/Secrets/DB_USER_ID,Booklore/Secrets/DB_GROUP_ID,Booklore/Secrets/TZ,Booklore/Secrets/DB_USER,Booklore/Secrets/DB_PASSWORD,Booklore/Secrets/MYSQL_ROOT_PASSWORD,Booklore/Secrets/MYSQL_DATABASE";
