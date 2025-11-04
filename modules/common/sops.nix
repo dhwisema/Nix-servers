@@ -14,11 +14,11 @@
 
   sops.secrets."booklore.env" = {
     sopsFile = ../../secrets/booklore.env;
-    format = "env";
+    format = "dotenv";
   };
     sops.secrets."mariaDB.env" = {
     sopsFile = ../../secrets/mariaDB.env;
-    format = "env";
+    format = "dotenv";
   };
 
 
