@@ -16,7 +16,7 @@ services:
       mariadb:
         condition: service_healthy
     ports:
-      - "${BOOKLORE_PORT}:${BOOKLORE_PORT}"
+      - "6060:6060"
     volumes:
       - ./data:/app/data
       - ./books:/books
