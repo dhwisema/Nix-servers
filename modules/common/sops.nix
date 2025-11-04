@@ -11,13 +11,15 @@
   sops.age.generateKey = true;
   # This is the actual specification of the secrets.
 
-  # sops.secrets."Booklore/DATABASE_URL" = {};
-  # sops.secrets."Booklore/DB_USER" = {};
-  # sops.secrets."Booklore/DB_PASSWORD" = {};
-  # sops.secrets."mariaDB/MYSQL_ROOT_PASSWORD" = {};
-  # sops.secrets."mariaDB/MYSQL_DATABASE" = {};
-  sops.secrets."Booklore" = {};
-  sops.secrets."mariaDB" = {};
+
+
+  sops.secrets."Booklore/DATABASE_URL" = {};
+  sops.secrets."Booklore/DB_USER" = {};
+  sops.secrets."Booklore/DB_PASSWORD" = {};
+  sops.secrets."mariaDB/MYSQL_ROOT_PASSWORD" = {};
+  sops.secrets."mariaDB/MYSQL_DATABASE" = {};
+
+
 
 
 }
