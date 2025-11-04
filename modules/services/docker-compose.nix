@@ -32,9 +32,9 @@
       "USER_ID" = "/run/secrets/Booklore/Secrets/APP_USER_ID";
     };
     volumes = [
-      "/home/howard/booklore/modules/docker_temp/booklore/bookdrop:/bookdrop:rw"
-      "/home/howard/booklore/modules/docker_temp/booklore/books:/books:rw"
-      "/home/howard/booklore/modules/docker_temp/booklore/data:/app/data:rw"
+      "/home/howard/booklore/booklore/bookdrop:/bookdrop:rw"
+      "/home/howard/booklore/booklore/books:/books:rw"
+      "/home/howard/booklore/booklore/data:/app/data:rw"
     ];
     ports = [
       "6060:6060/tcp"
