@@ -11,16 +11,16 @@
   sops.age.generateKey = true;
   # This is the actual specification of the secrets.
 
-    "Booklore/Secrets/APP_USER_ID" = {};
-    "Booklore/Secrets/APP_GROUP_ID" = {};
-    "Booklore/Secrets/TZ" = {};
-    "Booklore/Secrets/BOOKLORE_PORT" = {};
-    "Booklore/Secrets/DATABASE_URL" = {};
-    "Booklore/Secrets/DB_USER" = {};
-    "Booklore/Secrets/DB_PASSWORD" = {};
-    "Booklore/Secrets/DB_USER_ID" = {};
-    "Booklore/Secrets/DB_GROUP_ID" = {};
-    "Booklore/Secrets/MYSQL_ROOT_PASSWORD" = {};
-    "Booklore/Secrets/MYSQL_DATABASE" = {};
+    "Booklore/secrets/APP_USER_ID" = {};
+    "Booklore/secrets/APP_GROUP_ID" = {};
+    "Booklore/secrets/TZ" = {};
+    "Booklore/secrets/BOOKLORE_PORT" = {};
+    "Booklore/secrets/DATABASE_URL" = {};
+    "Booklore/secrets/DB_USER" = {};
+    "Booklore/secrets/DB_PASSWORD" = {};
+    "Booklore/secrets/DB_USER_ID" = {};
+    "Booklore/secrets/DB_GROUP_ID" = {};
+    "Booklore/secrets/MYSQL_ROOT_PASSWORD" = {};
+    "Booklore/secrets/MYSQL_DATABASE" = {};
 }
 
