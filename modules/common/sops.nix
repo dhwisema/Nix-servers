@@ -24,4 +24,3 @@
     sops.secrets."Booklore/Secrets/MYSQL_DATABASE" = {};
 }
 
-Booklore/Secrets/
