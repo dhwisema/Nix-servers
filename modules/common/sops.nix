@@ -11,8 +11,5 @@
   sops.age.generateKey = true;
   # This is the actual specification of the secrets.
 
-  sops.secrets."Booklore/Secrets/DATABASE_URL" = { };
-  sops.secrets."Booklore/Secrets/DB_USER" = { };
-  sops.secrets."Booklore/Secrets/DB_PASSWORD" = { };
-  sops.secrets."Booklore/Secrets/MYSQL_ROOT_PASSWORD" = { };
+  sops.secrets."Booklore.Secrets" ={ };
 }
