@@ -25,7 +25,7 @@
     environment = {
       "BOOKLORE_PORT" = "6060";
       "DATABASE_PASSWORD" = "/run/secrets/Booklore/Secrets/DB_PASSWORD";
-      "DATABASE_URL" = "/run/secrets/Booklore_Secrets/DATABASE_URL";
+      "DATABASE_URL" = "/run/secrets/Booklore/Secrets/DATABASE_URL";
       "DATABASE_USERNAME" = "/run/secrets/Booklore/Secrets_DB_USER";
       "GROUP_ID" = "/run/secrets/Booklore/Secrets/APP_GROUP_ID";
       "TZ" = "/run/secrets/Booklore/Secrets/TZ";
