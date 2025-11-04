@@ -8,6 +8,6 @@
   imports = [
     ./calibre.nix
     ./tailscale.nix
-    # ./docker-compose.nix
+    ./docker-compose.nix
   ];
 }

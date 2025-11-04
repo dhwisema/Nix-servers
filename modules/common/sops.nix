@@ -11,8 +11,12 @@
   sops.age.generateKey = true;
   # This is the actual specification of the secrets.
 
-    # sops.secrets."Booklore/Secrets/booklore.env" = {};
-    # sops.secrets."Booklore/Secrets/mariaDB.env" = {};
+  sops.secrets."Booklore/Secrets/booklore.env" = {
+    sopsFile = ../../secrets/secrets.yaml;
+  };
+
+  sops.secrets."Booklore/Secrets/mariaDB.env" = {
+    sopsFile = ../../secrets/secrets.yaml;
+  };
 
 }
-
