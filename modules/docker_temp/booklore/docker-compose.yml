@@ -21,7 +21,7 @@ services:
       - ./bookdrop:/bookdrop
     restart: unless-stopped
     labels:
-      - "compose2nix.settings.sops.secrets.Booklore.env=DATABASE_URL=DATABASE_URL,DB_USER=DB_USER,DB_PASSWORD=DB_PASSWORD"
+      - "compose2nix.settings.sops.secrets=Booklore.env,mariaDB.env"
 
   mariadb:
     image: lscr.io/linuxserver/mariadb:11.4.5
@@ -43,4 +43,4 @@ services:
       timeout: 5s
       retries: 10
     labels:
-      - "compose2nix.settings.sops.secrets.mariaDB.env=MYSQL_ROOT_PASSWORD=MYSQL_ROOT_PASSWORD,MYSQL_DATABASE=MYSQL_DATABASE,MYSQL_USER=MYSQL_USER,MYSQL_PASSWORD=MYSQL_PASSWORD"
+      - "compose2nix.settings.sops.secrets=Booklore.env,mariaDB.env"
