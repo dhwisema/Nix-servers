@@ -22,7 +22,8 @@ services:
       - ./books:/books
       - ./bookdrop:/bookdrop
     restart: unless-stopped
-
+    labels:
+      - "compose2nix.settings.sops.secrets=Booklore_Secrets_APP_USER_ID,Booklore_Secrets_APP_GROUP_ID,Booklore_Secrets_TZ,Booklore_Secrets_BOOKLORE_PORT,Booklore_Secrets_DATABASE_URL,Booklore_Secrets_DB_USER,Booklore_Secrets_DB_PASSWORD"
 
   mariadb:
     image: lscr.io/linuxserver/mariadb:11.4.5
@@ -43,3 +44,5 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+     labels:
+      - "compose2nix.settings.sops.secrets=Booklore_Secrets_DB_USER_ID,Booklore_Secrets_DB_GROUP_ID,Booklore_Secrets_TZ,Booklore_Secrets_DB_USER,Booklore_Secrets_DB_PASSWORD,Booklore_Secrets_MYSQL_ROOT_PASSWORD,Booklore_Secrets_MYSQL_DATABASE"
