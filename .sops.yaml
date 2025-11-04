@@ -16,4 +16,3 @@ creation_rules:
  # Use 'encrypted_regex' to specify which key values should be encrypted.
     # Keys matching this regex will have their values encrypted.
     # Non-matching keys will remain in plaintext.
-    encrypted_regex: '^(DB_USER|DB_PASSWORD|MYSQL_ROOT_PASSWORD|MYSQL_DATABASE)$'
