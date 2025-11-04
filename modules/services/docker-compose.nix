@@ -24,17 +24,17 @@
     image = "booklore/booklore:latest";
     environment = {
       "BOOKLORE_PORT" = "6060";
-      "DATABASE_PASSWORD" = "/run/secrets/Booklore_Secrets_DB_PASSWORD";
-      "DATABASE_URL" = "/run/secrets/Booklore_Secrets_DATABASE_URL";
-      "DATABASE_USERNAME" = "/run/secrets/Booklore_Secrets_DB_USER";
-      "GROUP_ID" = "/run/secrets/Booklore_Secrets_APP_GROUP_ID";
-      "TZ" = "/run/secrets/Booklore_Secrets_TZ";
-      "USER_ID" = "/run/secrets/Booklore_Secrets_APP_USER_ID";
+      "DATABASE_PASSWORD" = "/run/secrets/Booklore/Secrets/DB_PASSWORD";
+      "DATABASE_URL" = "/run/secrets/Booklore_Secrets/DATABASE_URL";
+      "DATABASE_USERNAME" = "/run/secrets/Booklore/Secrets_DB_USER";
+      "GROUP_ID" = "/run/secrets/Booklore/Secrets/APP_GROUP_ID";
+      "TZ" = "/run/secrets/Booklore/Secrets/TZ";
+      "USER_ID" = "/run/secrets/Booklore/Secrets/APP_USER_ID";
     };
     volumes = [
-      "/home/howard/Nix-servers/modules/docker_temp/booklore/bookdrop:/bookdrop:rw"
-      "/home/howard/Nix-servers/modules/docker_temp/booklore/books:/books:rw"
-      "/home/howard/Nix-servers/modules/docker_temp/booklore/data:/app/data:rw"
+      "/home/howard/booklore/modules/docker_temp/booklore/bookdrop:/bookdrop:rw"
+      "/home/howard/booklore/modules/docker_temp/booklore/books:/books:rw"
+      "/home/howard/booklore/modules/docker_temp/booklore/data:/app/data:rw"
     ];
     ports = [
       "6060:6060/tcp"
@@ -71,13 +71,13 @@
   virtualisation.oci-containers.containers."mariadb" = {
     image = "lscr.io/linuxserver/mariadb:11.4.5";
     environment = {
-      "MYSQL_DATABASE" = "/run/secrets/Booklore_Secrets_MYSQL_DATABASE";
-      "MYSQL_PASSWORD" = "/run/secrets/Booklore_Secrets_DB_PASSWORD";
-      "MYSQL_ROOT_PASSWORD" = "/run/secrets/Booklore_Secrets_MYSQL_ROOT_PASSWORD";
-      "MYSQL_USER" = "/run/secrets/Booklore_Secrets_DB_USER";
-      "PGID" = "/run/secrets/Booklore_Secrets_DB_GROUP_ID";
-      "PUID" = "/run/secrets/Booklore_Secrets_DB_USER_ID";
-      "TZ" = "/run/secrets/Booklore_Secrets_TZ";
+      "MYSQL_DATABASE" = "/run/secrets/Booklore/Secrets/MYSQL_DATABASE";
+      "MYSQL_PASSWORD" = "/run/secrets/Booklore/Secrets/DB_PASSWORD";
+      "MYSQL_ROOT_PASSWORD" = "/run/secrets/Booklore/Secrets/MYSQL_ROOT_PASSWORD";
+      "MYSQL_USER" = "/run/secrets/Booklore/Secrets/DB_USER";
+      "PGID" = "/run/secrets/Booklore/Secrets/DB_GROUP_ID";
+      "PUID" = "/run/secrets/Booklore/Secrets/DB_USER_ID";
+      "TZ" = "/run/secrets/Booklore/Secrets/TZ";
     };
     volumes = [
       "/home/howard/Nix-servers/modules/docker_temp/booklore/mariadb/config:/config:rw"
