@@ -10,4 +10,4 @@ creation_rules:
     key_groups:
       age:
       - *admin_server_oci
-      - *admin_howard_Laptop
+      - *admin_howard_laptop
