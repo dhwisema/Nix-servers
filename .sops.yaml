@@ -11,3 +11,7 @@ creation_rules:
     - age:
       - *admin_server_oci
       - *admin_howard_laptop
+ # Use 'encrypted_regex' to specify which key values should be encrypted.
+    # Keys matching this regex will have their values encrypted.
+    # Non-matching keys will remain in plaintext.
+    encrypted_regex: '^(DB_PASSWORD|MYSQL_ROOT_PASSWORD|DATABASE_URL|DB_USER)$'
