@@ -23,3 +23,4 @@
     "Booklore/Secrets/MYSQL_ROOT_PASSWORD" = {};
     "Booklore/Secrets/MYSQL_DATABASE" = {};
 }
+
