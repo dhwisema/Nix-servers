@@ -1,8 +1,6 @@
 services:
   booklore:
     image: booklore/booklore:latest
-    # Alternative: Use GitHub Container Registry
-    # image: ghcr.io/booklore-app/booklore:latest
     container_name: booklore
     environment:
       - USER_ID=${APP_USER_ID}
@@ -23,8 +21,7 @@ services:
       - ./bookdrop:/bookdrop
     restart: unless-stopped
     labels:
-      - "compose2nix.settings.sops.secrets=booklore.env"
-
+      - "compose2nix.settings.sops.secrets=Booklore/DATABASE_URL,Booklore/DB_USER,Booklore/DB_PASSWORD"
 
   mariadb:
     image: lscr.io/linuxserver/mariadb:11.4.5
@@ -45,3 +42,6 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+    labels:
+      - "compose2nix.settings.sops.secrets=mariaDB/MYSQL_ROOT_PASSWORD,mariaDB/MYSQL_DATABASE,Booklore/DB_USER,Booklore/DB_PASSWORD"
+
