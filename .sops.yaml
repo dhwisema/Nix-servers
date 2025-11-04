@@ -4,6 +4,7 @@
 # for a more complex example.
 keys:
   - &admin_server_oci age1ehkj5ne2qtazxmhcu0633d4yesky4dppd9r744qzn5v9ly8s29xqw3hdje
+  - &oci_key age1akum5vxexq0khes2lr6jl0ulrllrw8hwdmp2rr92qlrpyzuxmplsmgaqca
   - &admin_howard_laptop age1x73d03m8n9vynrpecssnnyv6e5zdx05rxm7v7sudvk5x3g30df8sp58upf
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
@@ -11,6 +12,7 @@ creation_rules:
     - age:
       - *admin_server_oci
       - *admin_howard_laptop
+      - *oci_key
  # Use 'encrypted_regex' to specify which key values should be encrypted.
     # Keys matching this regex will have their values encrypted.
     # Non-matching keys will remain in plaintext.
