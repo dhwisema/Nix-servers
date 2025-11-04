@@ -1,5 +1,6 @@
 # Auto-generated using compose2nix v0.3.1.
-{ pkgs, lib, ... }:{
+{ pkgs, lib, ... }:
+{
   # Runtime
   virtualisation.podman = {
     enable = true;
@@ -20,13 +21,14 @@
   virtualisation.oci-containers.containers."booklore" = {
     image = "booklore/booklore:latest";
     environment = {
+
       "BOOKLORE_PORT" = "6060";
-      "DATABASE_PASSWORD" = "/run/secrets/Booklore/Secrets/DB_PASSWORD";
-      "DATABASE_URL" = "/run/secrets/Booklore/Secrets/DATABASE_URL";
-      "DATABASE_USERNAME" = "/run/secrets/Booklore/Secrets/DB_USER";
-      "GROUP_ID" = "/run/secrets/Booklore/Secrets/APP_GROUP_ID";
-      "TZ" = "/run/secrets/Booklore/Secrets/TZ";
-      "USER_ID" = "/run/secrets/Booklore/Secrets/APP_USER_ID";
+      "DATABASE_URL_FILE" = "/run/secrets/Booklore/Secrets/DATABASE_URL";
+      "DATABASE_USERNAME_FILE" = "/run/secrets/Booklore/Secrets/DB_USER";
+      "DATABASE_PASSWORD_FILE" = "/run/secrets/Booklore/Secrets/DB_PASSWORD";
+      "TZ_FILE" = "/run/secrets/Booklore/Secrets/TZ";
+      "USER_ID_FILE" = "/run/secrets/Booklore/Secrets/APP_USER_ID";
+      "GROUP_ID_FILE" = "/run/secrets/Booklore/Secrets/APP_GROUP_ID";
     };
     volumes = [
       "/home/howard/booklore/booklore/bookdrop:/bookdrop:rw"
@@ -35,7 +37,8 @@
     ];
     ports = [ "6060:6060/tcp" ];
     labels = {
-      "compose2nix.settings.sops.secrets" = "Booklore/Secrets/APP_USER_ID,Booklore/Secrets/APP_GROUP_ID,Booklore/Secrets/TZ,Booklore/Secrets/BOOKLORE_PORT,Booklore/Secrets/DATABASE_URL,Booklore/Secrets/DB_USER,Booklore/Secrets/DB_PASSWORD";
+      "compose2nix.settings.sops.secrets" =
+        "Booklore/Secrets/APP_USER_ID,Booklore/Secrets/APP_GROUP_ID,Booklore/Secrets/TZ,Booklore/Secrets/BOOKLORE_PORT,Booklore/Secrets/DATABASE_URL,Booklore/Secrets/DB_USER,Booklore/Secrets/DB_PASSWORD";
     };
     dependsOn = [ "mariadb" ];
     log-driver = "journald";
@@ -58,19 +61,20 @@
   virtualisation.oci-containers.containers."mariadb" = {
     image = "lscr.io/linuxserver/mariadb:11.4.5";
     environment = {
-      "MYSQL_DATABASE" = "/run/secrets/Booklore/Secrets/MYSQL_DATABASE";
-      "MYSQL_PASSWORD" = "/run/secrets/Booklore/Secrets/DB_PASSWORD";
-      "MYSQL_ROOT_PASSWORD" = "/run/secrets/Booklore/Secrets/MYSQL_ROOT_PASSWORD";
-      "MYSQL_USER" = "/run/secrets/Booklore/Secrets/DB_USER";
-      "PGID" = "/run/secrets/Booklore/Secrets/DB_GROUP_ID";
-      "PUID" = "/run/secrets/Booklore/Secrets/DB_USER_ID";
-      "TZ" = "/run/secrets/Booklore/Secrets/TZ";
+      "MYSQL_DATABASE_FILE" = "/run/secrets/Booklore/Secrets/MYSQL_DATABASE";
+      "MYSQL_PASSWORD_FILE" = "/run/secrets/Booklore/Secrets/DB_PASSWORD";
+      "MYSQL_ROOT_PASSWORD_FILE" = "/run/secrets/Booklore/Secrets/MYSQL_ROOT_PASSWORD";
+      "MYSQL_USER_FILE" = "/run/secrets/Booklore/Secrets/DB_USER";
+      "PGID_FILE" = "/run/secrets/Booklore/Secrets/DB_GROUP_ID";
+      "PUID_FILE" = "/run/secrets/Booklore/Secrets/DB_USER_ID";
+      "TZ_FILE" = "/run/secrets/Booklore/Secrets/TZ";
     };
     volumes = [
       "/home/howard/booklore/mariadb/config:/config:rw"
     ];
     labels = {
-      "compose2nix.settings.sops.secrets" = "Booklore/Secrets/DB_USER_ID,Booklore/Secrets/DB_GROUP_ID,Booklore/Secrets/TZ,Booklore/Secrets/DB_USER,Booklore/Secrets/DB_PASSWORD,Booklore/Secrets/MYSQL_ROOT_PASSWORD,Booklore/Secrets/MYSQL_DATABASE";
+      "compose2nix.settings.sops.secrets" =
+        "Booklore/Secrets/DB_USER_ID,Booklore/Secrets/DB_GROUP_ID,Booklore/Secrets/TZ,Booklore/Secrets/DB_USER,Booklore/Secrets/DB_PASSWORD,Booklore/Secrets/MYSQL_ROOT_PASSWORD,Booklore/Secrets/MYSQL_DATABASE";
     };
     log-driver = "journald";
     extraOptions = [
