@@ -16,6 +16,8 @@
   # sops.secrets."Booklore/DB_PASSWORD" = {};
   # sops.secrets."mariaDB/MYSQL_ROOT_PASSWORD" = {};
   # sops.secrets."mariaDB/MYSQL_DATABASE" = {};
+  sops.secrets."Booklore" = {};
+  sops.secrets."mariaDB" = {};
 
 
 }
