@@ -83,7 +83,7 @@
       "/home/howard/Nix-servers/modules/docker_temp/booklore/mariadb/config:/config:rw"
     ];
     labels = {
-      "compose2nix.settings.sops.secrets" = "Booklore_Secrets_DB_USER_ID,Booklore_Secrets_DB_GROUP_ID,Booklore_Secrets_TZ,Booklore_Secrets_DB_USER,Booklore_Secrets_DB_PASSWORD,Booklore_Secrets_MYSQL_ROOT_PASSWORD,Booklore_Secrets_MYSQL_DATABASE";
+      "compose2nix.settings.sops.secrets" = "Booklore/Secrets/DB_USER_ID,Booklore/Secrets/DB_GROUP_ID,Booklore/Secrets/TZ,Booklore/Secrets/DB_USER,Booklore/Secrets/DB_PASSWORD,Booklore/Secrets/MYSQL_ROOT_PASSWORD,Booklore/Secrets/MYSQL_DATABASE";
     };
     log-driver = "journald";
     extraOptions = [
