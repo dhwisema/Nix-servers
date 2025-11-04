@@ -5,37 +5,35 @@ services:
     # image: ghcr.io/booklore-app/booklore:latest
     container_name: booklore
     environment:
-      - USER_ID=/run/secrets/Booklore_Secrets_APP_USER_ID
-      - GROUP_ID=/run/secrets/Booklore_Secrets_APP_GROUP_ID
-      - TZ=/run/secrets/Booklore_Secrets_TZ
-      - DATABASE_URL=/run/secrets/Booklore_Secrets_DATABASE_URL
-      - DATABASE_USERNAME=/run/secrets/Booklore_Secrets_DB_USER
-      - DATABASE_PASSWORD=/run/secrets/Booklore_Secrets_DB_PASSWORD
-      - BOOKLORE_PORT=6060
+      - USER_ID=${APP_USER_ID}
+      - GROUP_ID=${APP_GROUP_ID}
+      - TZ=${TZ}
+      - DATABASE_URL=${DATABASE_URL}
+      - DATABASE_USERNAME=${DB_USER}
+      - DATABASE_PASSWORD=${DB_PASSWORD}
+      - BOOKLORE_PORT=${BOOKLORE_PORT}
     depends_on:
       mariadb:
         condition: service_healthy
     ports:
-      - "6060:6060"
+      - "${BOOKLORE_PORT}:${BOOKLORE_PORT}"
     volumes:
       - ./data:/app/data
       - ./books:/books
       - ./bookdrop:/bookdrop
     restart: unless-stopped
-    labels:
-      - "compose2nix.settings.sops.secrets=Booklore_Secrets_APP_USER_ID,Booklore_Secrets_APP_GROUP_ID,Booklore_Secrets_TZ,Booklore_Secrets_BOOKLORE_PORT,Booklore_Secrets_DATABASE_URL,Booklore_Secrets_DB_USER,Booklore_Secrets_DB_PASSWORD"
 
   mariadb:
     image: lscr.io/linuxserver/mariadb:11.4.5
     container_name: mariadb
     environment:
-      - PUID=/run/secrets/Booklore_Secrets_DB_USER_ID
-      - PGID=/run/secrets/Booklore_Secrets_DB_GROUP_ID
-      - TZ=/run/secrets/Booklore_Secrets_TZ
-      - MYSQL_ROOT_PASSWORD=/run/secrets/Booklore_Secrets_MYSQL_ROOT_PASSWORD
-      - MYSQL_DATABASE=/run/secrets/Booklore_Secrets_MYSQL_DATABASE
-      - MYSQL_USER=/run/secrets/Booklore_Secrets_DB_USER
-      - MYSQL_PASSWORD=/run/secrets/Booklore_Secrets_DB_PASSWORD
+      - PUID=${DB_USER_ID}
+      - PGID=${DB_GROUP_ID}
+      - TZ=${TZ}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
     volumes:
       - ./mariadb/config:/config
     restart: unless-stopped
@@ -44,5 +42,3 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
-    labels:
-      - "compose2nix.settings.sops.secrets=Booklore_Secrets_DB_USER_ID,Booklore_Secrets_DB_GROUP_ID,Booklore_Secrets_TZ,Booklore_Secrets_DB_USER,Booklore_Secrets_DB_PASSWORD,Booklore_Secrets_MYSQL_ROOT_PASSWORD,Booklore_Secrets_MYSQL_DATABASE"

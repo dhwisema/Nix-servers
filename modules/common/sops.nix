@@ -11,16 +11,8 @@
   sops.age.generateKey = true;
   # This is the actual specification of the secrets.
 
-    sops.secrets."Booklore/Secrets/APP_USER_ID" = {};
-    sops.secrets."Booklore/Secrets/APP_GROUP_ID" = {};
-    sops.secrets."Booklore/Secrets/TZ" = {};
-    sops.secrets."Booklore/Secrets/BOOKLORE_PORT" = {};
-    sops.secrets."Booklore/Secrets/DATABASE_URL" = {};
-    sops.secrets."Booklore/Secrets/DB_USER" = {};
-    sops.secrets."Booklore/Secrets/DB_PASSWORD" = {};
-    sops.secrets."Booklore/Secrets/DB_USER_ID" = {};
-    sops.secrets."Booklore/Secrets/DB_GROUP_ID" = {};
-    sops.secrets."Booklore/Secrets/MYSQL_ROOT_PASSWORD" = {};
-    sops.secrets."Booklore/Secrets/MYSQL_DATABASE" = {};
+    sops.secrets."Booklore/Secrets/booklore.env" = {};
+    sops.secrets."Booklore/Secrets/mariaDB.env" = {};
+
 }
 
