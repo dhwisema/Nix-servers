@@ -43,4 +43,4 @@ services:
       timeout: 5s
       retries: 10
     labels:
-      - "compose2nix.settings.sops.secrets=MYSQL_ROOT_PASSWORD"
+      - "compose2nix.settings.sops.secrets=MYSQL_ROOT_PASSWORD,DB_PASSWORD"
