@@ -33,7 +33,7 @@
       "BOOKLORE_PORT" = "6060";
       "DATABASE_URL" = "jdbc:mariadb://mariadb:3306/booklore";
       "DATABASE_USERNAME" = "booklore";
-      DATABASE_PASSWORD_FILE = config.sops.secrets."DB_PASSWORD".path;
+      DATABASE_PASSWORD = builtins.readFile config.sops.secrets."DB_PASSWORD".path;
       "GROUP_ID" = "0";
       "TZ" = "Etc/UTC";
       "USER_ID" = "0";
