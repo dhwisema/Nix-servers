@@ -1,6 +1,8 @@
 services:
   booklore:
     image: booklore/booklore:latest
+    # Alternative: Use GitHub Container Registry
+    # image: ghcr.io/booklore-app/booklore:latest
     container_name: booklore
     environment:
       - USER_ID=${APP_USER_ID}
@@ -8,7 +10,7 @@ services:
       - TZ=${TZ}
       - DATABASE_URL=${DATABASE_URL}
       - DATABASE_USERNAME=${DB_USER}
-      # - DATABASE_PASSWORD=${DB_PASSWORD}
+      - DATABASE_PASSWORD=${DB_PASSWORD}
       - BOOKLORE_PORT=${BOOKLORE_PORT}
     depends_on:
       mariadb:
@@ -16,12 +18,10 @@ services:
     ports:
       - "${BOOKLORE_PORT}:${BOOKLORE_PORT}"
     volumes:
-      - ~/booklore/data:/app/data
-      - ~/booklore/books:/books
-      - ~/booklore/bookdrop:/bookdrop
+      - ./data:/app/data
+      - ./books:/books
+      - ./bookdrop:/bookdrop
     restart: unless-stopped
-    labels:
-      - "compose2nix.settings.sops.secrets=DB_PASSWORD,MYSQL_ROOT_PASSWORD"
 
   mariadb:
     image: lscr.io/linuxserver/mariadb:11.4.5
@@ -30,17 +30,15 @@ services:
       - PUID=${DB_USER_ID}
       - PGID=${DB_GROUP_ID}
       - TZ=${TZ}
-      # - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${DB_USER}
-      # - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
     volumes:
-      - ~/booklore/mariadb/config:/config
+      - ./mariadb/config:/config
     restart: unless-stopped
     healthcheck:
       test: [ "CMD", "mariadb-admin", "ping", "-h", "localhost" ]
       interval: 5s
       timeout: 5s
       retries: 10
-    labels:
-      - "compose2nix.settings.sops.secrets=MYSQL_ROOT_PASSWORD,DB_PASSWORD"
