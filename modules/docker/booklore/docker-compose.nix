@@ -34,9 +34,9 @@
       config.sops.secrets."DB_PASSWORD".path
     ];
     volumes = [
-      "/home/howard/Nix-servers/modules/docker/booklore/bookdrop:/bookdrop:rw"
-      "/home/howard/Nix-servers/modules/docker/booklore/books:/books:rw"
-      "/home/howard/Nix-servers/modules/docker/booklore/data:/app/data:rw"
+      "/home/howard/booklore/bookdrop:/bookdrop:rw"
+      "/home/howard/booklore/books:/books:rw"
+      "/home/howard/booklore/data:/app/data:rw"
     ];
     ports = [
       "6060:6060/tcp"
@@ -83,7 +83,7 @@
       config.sops.secrets."MYSQL_ROOT_PASSWORD".path
     ];
     volumes = [
-      "/home/howard/Nix-servers/modules/docker/booklore/mariadb/config:/config:rw"
+      "/home/howard/booklore/mariadb/config:/config:rw"
     ];
     labels = {
       "compose2nix.settings.sops.secrets" = "MYSQL_ROOT_PASSWORD";

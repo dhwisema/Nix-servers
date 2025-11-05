@@ -16,9 +16,9 @@ services:
     ports:
       - "${BOOKLORE_PORT}:${BOOKLORE_PORT}"
     volumes:
-      - ./data:/app/data
-      - ./books:/books
-      - ./bookdrop:/bookdrop
+      - ~/booklore/data:/app/data
+      - ~/booklore/books:/books
+      - ~/booklore/bookdrop:/bookdrop
     restart: unless-stopped
     labels:
       - "compose2nix.settings.sops.secrets=DB_PASSWORD"
@@ -35,7 +35,7 @@ services:
       - MYSQL_USER=${DB_USER}
       #- MYSQL_PASSWORD=${DB_PASSWORD}
     volumes:
-      - ./mariadb/config:/config
+      - ~/booklore/mariadb/config:/config
     restart: unless-stopped
     healthcheck:
       test: [ "CMD", "mariadb-admin", "ping", "-h", "localhost" ]
