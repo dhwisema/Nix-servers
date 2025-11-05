@@ -19,7 +19,7 @@
   networking.firewall.interfaces =
     let
       matchAll = if !config.networking.nftables.enable then "podman+" else "podman*";
-    in abort
+    in
     {
       "${matchAll}".allowedUDPPorts = [ 53 ];
     };
