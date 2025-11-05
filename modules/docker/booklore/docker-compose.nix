@@ -49,6 +49,7 @@ in
       "/home/howard/booklore/books:/books:rw"
       "/home/howard/booklore/data:/app/data:rw"
       "/home/howard/secrets:${secretsMount}:ro"
+      "/home/howard/booklore/entrypoint.sh:/app/entrypoint.sh:ro"
     ];
     ports = [
       "6060:6060/tcp"
@@ -63,14 +64,18 @@ in
     extraOptions = [
       "--network-alias=booklore"
       "--network=booklore_default"
+      "--entrypoint=/app/entrypoint.sh"
+      "--network-alias=booklore"
+      "--network=booklore_default"
     ];
   };
 
-
-
   # Add a small entrypoint script to read the secret and start Spring Boot
   systemd.services."podman-booklore-entrypoint" = {
-    path = [ pkgs.coreutils pkgs.bash ]; # ensure basic shell tools are available
+    path = [
+      pkgs.coreutils
+      pkgs.bash
+    ]; # ensure basic shell tools are available
     script = ''
       mkdir -p /app
       cat > /app/entrypoint.sh <<'EOF'
