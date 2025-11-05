@@ -6,6 +6,6 @@
 }:
 {
   imports = [
-    ./booklore/docker-compose.nix
+    # ./booklore/docker-compose.nix
   ];
 }
