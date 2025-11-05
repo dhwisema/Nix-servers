@@ -6,7 +6,10 @@
   config,
   ...
 }:
-
+let
+  # Path inside the container where secrets will be mounted
+  secretsMount = "/run/secrets";
+in
 {
   # Runtime
   virtualisation.podman = {
@@ -33,7 +36,6 @@
       "BOOKLORE_PORT" = "6060";
       "DATABASE_URL" = "jdbc:mariadb://mariadb:3306/booklore";
       "DATABASE_USERNAME" = "booklore";
-      DATABASE_PASSWORD = builtins.readFile config.sops.secrets."DB_PASSWORD".path;
       "GROUP_ID" = "0";
       "TZ" = "Etc/UTC";
       "USER_ID" = "0";
@@ -46,6 +48,7 @@
       "/home/howard/booklore/bookdrop:/bookdrop:rw"
       "/home/howard/booklore/books:/books:rw"
       "/home/howard/booklore/data:/app/data:rw"
+      "/home/howard/secrets:${secretsMount}:ro"
     ];
     ports = [
       "6060:6060/tcp"
@@ -62,6 +65,24 @@
       "--network=booklore_default"
     ];
   };
+
+
+
+  # Add a small entrypoint script to read the secret and start Spring Boot
+  systemd.services."podman-booklore-entrypoint" = {
+    path = [ pkgs.coreutils pkgs.bash ]; # ensure basic shell tools are available
+    script = ''
+      mkdir -p /app
+      cat > /app/entrypoint.sh <<'EOF'
+      #!/bin/sh
+      export DATABASE_PASSWORD=$(cat "${secretsMount}/DB_PASSWORD")
+      exec java -jar /app/app.jar
+      EOF
+      chmod +x /app/entrypoint.sh
+    '';
+    wantedBy = [ "multi-user.target" ];
+  };
+
   systemd.services."podman-booklore" = {
     serviceConfig = {
       Restart = lib.mkOverride 90 "always";
