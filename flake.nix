@@ -33,7 +33,7 @@
           ./host/oci/configuration.nix
           disko.nixosModules.disko
           ./host/oci/disk-config.nix
-          sops-nix.nixosModules.sops
+     
           portainer-on-nixos.nixosModules.portainer
           {
             services.portainer = {
@@ -70,7 +70,7 @@
           disko.nixosModules.disko
           ./host/optiplex/configuration.nix
           ./host/optiplex/disk-config.nix
-          sops-nix.nixosModules.sops
+
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -87,7 +87,7 @@
         system = "x86_64-linux";
         modules = [
           ./host/MQ90/configuration.nix
-          sops-nix.nixosModules.sops
+  
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -104,7 +104,6 @@
         system = "x86_64-linux";
         modules = [
           disko.nixosModules.disko
-          sops-nix.nixosModules.sops
           ./host/generic/disk-config.nix
           ./host/generic/configuration.nix
           ./host/generic/hardware-configuration.nix
