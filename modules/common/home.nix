@@ -4,13 +4,14 @@
 
   programs.git = {
     enable = true;
-  
-      userEmail = "dhwisema@ncsu.edu";
-      userName = "dhwisema";
+    settings = {
+      user.email = "dhwisema@ncsu.edu";
+      user.name = "dhwisema";
+    };
 
   };
 
-    home.packages = with pkgs; [
+  home.packages = with pkgs; [
   ];
 
   # Home Manager needs a bit of information about you and the
