@@ -5,8 +5,8 @@
   programs.git = {
     enable = true;
   
-      email = "dhwisema@ncsu.edu";
-      name = "dhwisema";
+      userEmail = "dhwisema@ncsu.edu";
+      userName = "dhwisema";
 
   };
 
