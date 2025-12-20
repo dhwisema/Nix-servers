@@ -33,7 +33,7 @@
           ./host/oci/configuration.nix
           disko.nixosModules.disko
           ./host/oci/disk-config.nix
-     
+
           portainer-on-nixos.nixosModules.portainer
           {
             services.portainer = {
@@ -71,6 +71,25 @@
           ./host/optiplex/configuration.nix
           ./host/optiplex/disk-config.nix
 
+          portainer-on-nixos.nixosModules.portainer
+          {
+            services.portainer = {
+              enable = true; # Default false
+
+              version = "latest";
+              # Default latest, you can check dockerhub for
+              # other tags.
+
+              openFirewall = false; # Default false, set to 'true' if you want
+              # to be able to access via the port on
+              # something other than localhost.
+
+              port = 9443;
+              # Sets the port number in both the firewall and
+              # the docker container port mapping itself.
+            };
+          }
+
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -89,7 +108,25 @@
           disko.nixosModules.disko
           ./host/MQ90/configuration.nix
           ./host/MQ90/disk-config.nix
-  
+
+          portainer-on-nixos.nixosModules.portainer
+          {
+            services.portainer = {
+              enable = true; # Default false
+
+              version = "latest";
+              # Default latest, you can check dockerhub for
+              # other tags.
+
+              openFirewall = false; # Default false, set to 'true' if you want
+              # to be able to access via the port on
+              # something other than localhost.
+
+              port = 9443;
+              # Sets the port number in both the firewall and
+              # the docker container port mapping itself.
+            };
+          }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -109,6 +146,24 @@
           ./host/generic/disk-config.nix
           ./host/generic/configuration.nix
           ./host/generic/hardware-configuration.nix
+          portainer-on-nixos.nixosModules.portainer
+          {
+            services.portainer = {
+              enable = true; # Default false
+
+              version = "latest";
+              # Default latest, you can check dockerhub for
+              # other tags.
+
+              openFirewall = false; # Default false, set to 'true' if you want
+              # to be able to access via the port on
+              # something other than localhost.
+
+              port = 9443;
+              # Sets the port number in both the firewall and
+              # the docker container port mapping itself.
+            };
+          }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -122,4 +177,3 @@
       };
     };
 }
-        
