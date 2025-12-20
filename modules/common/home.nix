@@ -4,8 +4,10 @@
 
   programs.git = {
     enable = true;
-    userEmail = "dhwisema@ncsu.edu";
-    userName = "dhwisema";
+  
+      email = "dhwisema@ncsu.edu";
+      name = "dhwisema";
+
   };
 
     home.packages = with pkgs; [
