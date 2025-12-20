@@ -17,7 +17,7 @@
               };
             };
             plainSwap = {
-              size = "100%";
+              size = "16G";
               content = {
                 type = "swap";
                 discardPolicy = "both";

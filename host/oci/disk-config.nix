@@ -25,11 +25,11 @@
               };
             };
             plainSwap = {
-              size = "100%";
+              size = "24G";
               content = {
                 type = "swap";
                 discardPolicy = "both";
-                resumeDevice = true; # resume from hiberation from this device
+                resumeDevice = false; # never hibernate cause cloud server
               };
             };
           };
