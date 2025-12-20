@@ -11,6 +11,8 @@
     #portainer flake
     portainer-on-nixos.url = "gitlab:cbleslie/portainer-on-nixos";
     portainer-on-nixos.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
   };
 
@@ -21,6 +23,7 @@
       nixpkgs,
       disko,
       sops-nix,
+      home-manager,
       ...
     }:
     {
@@ -50,6 +53,30 @@
             };
           }
 
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.jdoe = ./modules/common/home.nix;
+
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
+        ];
+      };
+      nixosConfigurations.Optiplex = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./host/optiplex/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.jdoe = ./modules/common/home.nix;
+
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
         ];
       };
 
@@ -57,7 +84,16 @@
         system = "x86_64-linux";
         modules = [
           ./host/MQ90/configuration.nix
-          sops-nix.nixosModules.sops
+          # sops-nix.nixosModules.sops
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.howard = ./modules/common/home.nix;
+
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
         ];
       };
     };
