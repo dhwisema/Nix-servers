@@ -8,7 +8,6 @@
 
   environment.systemPackages = with pkgs; [
     curl
-    git
     wget
     lazygit
     yazi
