@@ -68,6 +68,7 @@
         system = "x86_64-linux";
         modules = [
           ./host/optiplex/configuration.nix
+          sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -84,7 +85,7 @@
         system = "x86_64-linux";
         modules = [
           ./host/MQ90/configuration.nix
-          # sops-nix.nixosModules.sops
+          sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -101,6 +102,7 @@
         system = "x86_64-linux";
         modules = [
           disko.nixosModules.disko
+          sops-nix.nixosModules.sops
           ./host/generic/configuration.nix
           ./host/generic/hardware-configuration.nix
           home-manager.nixosModules.home-manager
