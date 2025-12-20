@@ -86,7 +86,9 @@
       nixosConfigurations.MQ90 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          disko.nixosModules.disko
           ./host/MQ90/configuration.nix
+          ./host/MQ90/disk-config.nix
   
           home-manager.nixosModules.home-manager
           {
