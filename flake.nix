@@ -2,7 +2,7 @@
   description = "Flake for my oci linux servbor";
 
   inputs = {
-    
+
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     #nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     disko.url = "github:nix-community/disko/latest";
@@ -40,6 +40,9 @@
           disko.nixosModules.disko
           ./host/oci/disk-config.nix
           agenix.nixosModules.default
+          {
+            environment.systemPackages = [ agenix.packages.aarch64-linux.default ];
+          }
 
           portainer-on-nixos.nixosModules.portainer
           {
@@ -78,6 +81,9 @@
           ./host/optiplex/configuration.nix
           ./host/optiplex/disk-config.nix
           agenix.nixosModules.default
+          {
+            environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
+          }
 
           portainer-on-nixos.nixosModules.portainer
           {
@@ -117,7 +123,9 @@
           ./host/MQ90/configuration.nix
           ./host/MQ90/disk-config.nix
           agenix.nixosModules.default
-
+          {
+            environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
+          }
           portainer-on-nixos.nixosModules.portainer
           {
             services.portainer = {
@@ -156,6 +164,9 @@
           ./host/generic/configuration.nix
           ./host/generic/hardware-configuration.nix
           agenix.nixosModules.default
+          {
+            environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
+          }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
