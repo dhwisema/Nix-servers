@@ -2,6 +2,7 @@
   description = "Flake for my oci linux servbor";
 
   inputs = {
+    
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     #nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     disko.url = "github:nix-community/disko/latest";
@@ -13,6 +14,10 @@
     portainer-on-nixos.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    #agenix
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
+    agenix.inputs.darwin.follows = "";
 
   };
 
@@ -24,6 +29,7 @@
       disko,
       sops-nix,
       home-manager,
+      agenix,
       ...
     }:
     {
@@ -33,6 +39,7 @@
           ./host/oci/configuration.nix
           disko.nixosModules.disko
           ./host/oci/disk-config.nix
+          agenix.nixosModules.default
 
           portainer-on-nixos.nixosModules.portainer
           {
@@ -70,6 +77,7 @@
           disko.nixosModules.disko
           ./host/optiplex/configuration.nix
           ./host/optiplex/disk-config.nix
+          agenix.nixosModules.default
 
           portainer-on-nixos.nixosModules.portainer
           {
@@ -108,6 +116,7 @@
           disko.nixosModules.disko
           ./host/MQ90/configuration.nix
           ./host/MQ90/disk-config.nix
+          agenix.nixosModules.default
 
           portainer-on-nixos.nixosModules.portainer
           {
@@ -146,24 +155,7 @@
           ./host/generic/disk-config.nix
           ./host/generic/configuration.nix
           ./host/generic/hardware-configuration.nix
-          portainer-on-nixos.nixosModules.portainer
-          {
-            services.portainer = {
-              enable = true; # Default false
-
-              version = "latest";
-              # Default latest, you can check dockerhub for
-              # other tags.
-
-              openFirewall = false; # Default false, set to 'true' if you want
-              # to be able to access via the port on
-              # something other than localhost.
-
-              port = 9443;
-              # Sets the port number in both the firewall and
-              # the docker container port mapping itself.
-            };
-          }
+          agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
