@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
     ./../../modules/common/common.nix
     ./../../modules/services/services.nix
+    ./../../modules/docker/docker.nix
   ];
 
   networking.hostName = "Optiplex";
