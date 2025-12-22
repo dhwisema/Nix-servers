@@ -9,7 +9,6 @@
     ./hardware-configuration.nix
     ./../../modules/common/common.nix
     ./../../modules/services/services.nix
-    ./../../modules/docker/more.nix
   ];
 
   networking.hostName = "Nixbox";
