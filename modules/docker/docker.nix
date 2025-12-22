@@ -6,6 +6,6 @@
 }:
 {
   imports = [
-    # ./booklore/docker-compose.nix
+    ./calibre-web-automated.nix
   ];
 }
