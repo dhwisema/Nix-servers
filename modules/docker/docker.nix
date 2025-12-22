@@ -11,6 +11,9 @@
     autoPrune.enable = true;
     dockerCompat = true;
   };
+    environment.systemPackages = [
+    pkgs.podman-compose
+  ];
 
   # Enable container name DNS for all Podman networks.
   networking.firewall.interfaces =
