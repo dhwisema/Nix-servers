@@ -7,11 +7,7 @@
     #nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
-    sops-nix.url = "github:Mic92/sops-nix";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-    #portainer flake
-    portainer-on-nixos.url = "gitlab:cbleslie/portainer-on-nixos";
-    portainer-on-nixos.inputs.nixpkgs.follows = "nixpkgs";
+    #homemanager
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     #agenix
@@ -44,25 +40,6 @@
             environment.systemPackages = [ agenix.packages.aarch64-linux.default ];
           }
 
-          portainer-on-nixos.nixosModules.portainer
-          {
-            services.portainer = {
-              enable = true; # Default false
-
-              version = "latest";
-              # Default latest, you can check dockerhub for
-              # other tags.
-
-              openFirewall = false; # Default false, set to 'true' if you want
-              # to be able to access via the port on
-              # something other than localhost.
-
-              port = 9443;
-              # Sets the port number in both the firewall and
-              # the docker container port mapping itself.
-            };
-          }
-
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -83,25 +60,6 @@
           agenix.nixosModules.default
           {
             environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
-          }
-
-          portainer-on-nixos.nixosModules.portainer
-          {
-            services.portainer = {
-              enable = true; # Default false
-
-              version = "latest";
-              # Default latest, you can check dockerhub for
-              # other tags.
-
-              openFirewall = false; # Default false, set to 'true' if you want
-              # to be able to access via the port on
-              # something other than localhost.
-
-              port = 9443;
-              # Sets the port number in both the firewall and
-              # the docker container port mapping itself.
-            };
           }
 
           home-manager.nixosModules.home-manager
@@ -126,24 +84,7 @@
           {
             environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
           }
-          portainer-on-nixos.nixosModules.portainer
-          {
-            services.portainer = {
-              enable = true; # Default false
-
-              version = "latest";
-              # Default latest, you can check dockerhub for
-              # other tags.
-
-              openFirewall = false; # Default false, set to 'true' if you want
-              # to be able to access via the port on
-              # something other than localhost.
-
-              port = 9443;
-              # Sets the port number in both the firewall and
-              # the docker container port mapping itself.
-            };
-          }
+      
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

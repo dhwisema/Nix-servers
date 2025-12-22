@@ -14,6 +14,5 @@
     ./time.nix
     ./users.nix
     ./boot.nix
-    # ./sops.nix
   ];
 }
