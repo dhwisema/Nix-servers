@@ -11,7 +11,7 @@
       "NETWORK_SHARE_MODE" = "false";
       "PGID" = "1000";
       "PUID" = "1000";
-      "TZ" = "EDT";
+      "TZ" = "America/New_York";
     };
     volumes = [
       "/home/howard/calibre-web-automated/config:/config:rw"
