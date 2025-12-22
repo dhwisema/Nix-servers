@@ -5,7 +5,7 @@
 {
   # Containers
   virtualisation.oci-containers.containers."calibre-web-automated" = {
-    image = "crocodilestick/Calibre-Web-Automated:latest";
+    image = "crocodilestick/calibre-web-automated:latest";
     environment = {
       "HARDCOVER_TOKEN" = "your_hardcover_api_key_here";
       "NETWORK_SHARE_MODE" = "false";
