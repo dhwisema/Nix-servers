@@ -19,7 +19,6 @@
 
   outputs =
     {
-      portainer-on-nixos,
       self,
       nixpkgs,
       disko,
