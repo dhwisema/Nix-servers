@@ -102,24 +102,20 @@
         "type": "github"
       }
     },
-    "portainer-on-nixos": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
+    "nixpkgs_2": {
       "locked": {
-        "lastModified": 1744390409,
-        "narHash": "sha256-C+Kw42DaTa6y2/4LDXWMMCK2/qOpEPLs6lpEg+zypWc=",
-        "owner": "cbleslie",
-        "repo": "portainer-on-nixos",
-        "rev": "8737cb91f32d6861165c84b22a5a98b198fa49b5",
-        "type": "gitlab"
+        "lastModified": 1766125104,
+        "narHash": "sha256-l/YGrEpLromL4viUo5GmFH3K5M1j0Mb9O+LiaeCPWEM=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "7d853e518814cca2a657b72eeba67ae20ebf7059",
+        "type": "github"
       },
       "original": {
-        "owner": "cbleslie",
-        "repo": "portainer-on-nixos",
-        "type": "gitlab"
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "root": {
@@ -128,15 +124,12 @@
         "disko": "disko",
         "home-manager": "home-manager_2",
         "nixpkgs": "nixpkgs",
-        "portainer-on-nixos": "portainer-on-nixos",
         "sops-nix": "sops-nix"
       }
     },
     "sops-nix": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1766289575,
@@ -147,9 +140,8 @@
         "type": "github"
       },
       "original": {
-        "owner": "Mic92",
-        "repo": "sops-nix",
-        "type": "github"
+        "id": "sops-nix",
+        "type": "indirect"
       }
     },
     "systems": {
