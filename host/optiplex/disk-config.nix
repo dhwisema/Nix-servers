@@ -3,7 +3,7 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/sda";
+        device = "/dev/nvme0n1";
         content = {
           type = "gpt";
           partitions = {
@@ -17,20 +17,20 @@
                 mountpoint = "/boot";
               };
             };
+            plainSwap = {
+              size = "32G";
+              content = {
+                type = "swap";
+                discardPolicy = "both";
+                resumeDevice = true; # resume from hiberation from this device
+              };
+            };
             root = {
               size = "100%";
               content = {
                 type = "filesystem";
                 format = "ext4";
                 mountpoint = "/";
-              };
-            };
-            plainSwap = {
-              size = "24G";
-              content = {
-                type = "swap";
-                discardPolicy = "both";
-                resumeDevice = false; # never hibernate cause cloud server
               };
             };
           };

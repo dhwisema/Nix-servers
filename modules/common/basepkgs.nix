@@ -7,8 +7,8 @@
 {
 
   environment.systemPackages = with pkgs; [
+    compose2nix
     curl
-    git
     wget
     lazygit
     yazi
